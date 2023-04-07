@@ -39,4 +39,6 @@ packer.startup(function(use)
 
   use 'williamboman/mason.nvim'
   use 'williamboman/mason-lspconfig.nvim'
+
+  use 'tpope/vim-commentary' -- NeoVim commentary
 end)
