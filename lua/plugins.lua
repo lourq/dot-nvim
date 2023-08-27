@@ -7,38 +7,32 @@ end
 vim.cmd [[packadd packer.nvim]]
 
 packer.startup(function(use)
-  use 'wbthomason/packer.nvim'      -- Package Manger
-  use 'RRethy/nvim-base16'          -- Color Theme
-  use 'norcalli/nvim-colorizer.lua' -- Colorizer
-  use 'nvim-lualine/lualine.nvim'   -- Status Line
+  use 'wbthomason/packer.nvim'
 
-  use 'hrsh7th/cmp-buffer'          -- nvim-cmp source for buffer words
-  use 'hrsh7th/cmp-nvim-lsp'        -- nvim-cmp source for neovim's built-in LSP
-  use 'hrsh7th/nvim-cmp'            -- Completion
-  use 'onsails/lspkind-nvim'        -- Adds Vscode-like Pictograms
-  use 'neovim/nvim-lspconfig'       -- LSP
-  use 'glepnir/lspsaga.nvim'        -- LSP UIs
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate'
-  }
-  use 'windwp/nvim-autopairs'
-  use 'windwp/nvim-ts-autotag'
-  use 'L3MON4D3/LuaSnip'                -- Snippets
-  use 'jose-elias-alvarez/null-ls.nvim' -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
-  use 'MunifTanjim/prettier.nvim'       -- Prettier plugin for Neovim's built-in LSP client
+  use 'neovim/nvim-lspconfig' -- lsp
 
-  use 'nvim-lua/plenary.nvim'           -- Common utilite
-  use 'nvim-telescope/telescope.nvim'
-  use 'nvim-telescope/telescope-file-browser.nvim'
-  use 'nvim-tree/nvim-web-devicons' -- File icons
+  use 'onsails/lspkind.nvim' -- vscode-like pictograms
+  use 'hrsh7th/nvim-cmp' -- compliteon plugin
+  use 'hrsh7th/cmp-buffer' -- nvim-cmp source for buffer words
+  use 'hrsh7th/cmp-nvim-lsp' -- nvim-cmp source for neovim builtin LSP client
+  use ('nvimdev/lspsaga.nvim') -- lsp enhance plugin
+  use 'L3MON4D3/LuaSnip' -- snippet engine for neovim
 
-  use 'akinsho/nvim-bufferline.lua'
-  use 'lewis6991/gitsigns.nvim' --
-  use 'dinhhuy258/git.nvim'     -- For git blame & browse
+  use {'nvim-treesitter/nvim-treesitter',run=':TSUpdate'} -- highlight
+  use 'windwp/nvim-autopairs' -- autopairs for neovim
+  use 'windwp/nvim-ts-autotag' -- auto close and auto rename
 
-  use 'williamboman/mason.nvim'
-  use 'williamboman/mason-lspconfig.nvim'
+  use 'nvim-lua/plenary.nvim' -- common utilites
+  use 'nvim-telescope/telescope.nvim' -- fuzzy finder
+  use 'nvim-telescope/telescope-file-browser.nvim' -- file browser extension
 
-  use 'tpope/vim-commentary' -- NeoVim commentary
+  use 'RRethy/nvim-base16' -- colorstheme
+  use 'norcalli/nvim-colorizer.lua' -- colorizer
+  use 'nvim-tree/nvim-web-devicons' -- icons
+  use 'nvim-lualine/lualine.nvim' -- statusline
+  use 'akinsho/bufferline.nvim' -- bufferline
+
+  use 'terrortylor/nvim-comment'
+  use 'mfussenegger/nvim-dap'
+  use 'rcarriga/nvim-dap-ui'
 end)

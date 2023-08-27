@@ -1,3 +1,5 @@
+--vim.lsp.set_log_level("debug")
+
 local status, nvim_lsp = pcall(require, "lspconfig")
 if (not status) then return end
 
@@ -65,14 +67,14 @@ protocol.CompletionItemKind = {
 -- Set up completion using nvim_cmp with LSP source
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
--- nvim_lsp.flow.setup {
---  on_attach = on_attach,
---  capabilities = capabilities,
--- }
+nvim_lsp.flow.setup {
+  on_attach = on_attach,
+  capabilities = capabilities
+}
 
 nvim_lsp.tsserver.setup {
   on_attach = on_attach,
-  filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
+  filetypes = { "typescript", "typescriptreact", "typescript.tsx", "javascript" },
   cmd = { "typescript-language-server", "--stdio" },
   capabilities = capabilities
 }
@@ -89,6 +91,7 @@ nvim_lsp.lua_ls.setup {
         -- Get the language server to recognize the `vim` global
         globals = { 'vim' },
       },
+
       workspace = {
         -- Make the server aware of Neovim runtime files
         library = vim.api.nvim_get_runtime_file("", true),
@@ -98,15 +101,15 @@ nvim_lsp.lua_ls.setup {
   },
 }
 
-nvim_lsp.tailwindcss.setup {
-  on_attach = on_attach,
-  capabilities = capabilities
-}
+-- nvim_lsp.tailwindcss.setup {
+--   on_attach = on_attach,
+--   capabilities = capabilities
+-- }
 
-nvim_lsp.cssls.setup {
-  on_attach = on_attach,
-  capabilities = capabilities
-}
+-- nvim_lsp.cssls.setup {
+--   on_attach = on_attach,
+--   capabilities = capabilities
+-- }
 
 nvim_lsp.astro.setup {
   on_attach = on_attach,
@@ -117,13 +120,13 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
     underline = true,
     update_in_insert = false,
-    virtual_text = { spacing = 4, prefix = "●" },
+    virtual_text = { spacing = 4, prefix = "\u{ea71}" },
     severity_sort = true,
   }
 )
 
 -- Diagnostic symbols in the sign column (gutter)
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+local signs = { Error = " ", Warn = " ", Hint = "> ", Info = " " }
 for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })

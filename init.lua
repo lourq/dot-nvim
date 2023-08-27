@@ -1,19 +1,14 @@
-require("base")
-require("highligths")
-require("maps")
-require("plugins")
+require('base')
+require('maps')
+require('highligth')
+require('plugins')
 
-local has = vim.fn.has
-local is_mac = has "macunix"
-local is_win = has "win32"
-local is_wsl = has "wsl"
+local has = function(x)
+  return vim.fn.has(x) == 1
+end
 
-if is_mac then
-  require('macos')
-end
-if is_win then
-  require('windows')
-end
-if is_wsl then
-  require('wsl')
+local is_linux = has "unix"
+
+if is_linux then
+  require('linux')
 end

@@ -5,7 +5,7 @@ vim.opt.wildoptions = 'pum'
 vim.opt.pumblend = 5
 vim.opt.background = 'dark'
 
-vim.cmd("colorscheme base16-lour");
+vim.cmd('colorscheme base16-lour')
 
 -- highlight yanked text for 200ms using the "Visual" highlight group
 vim.cmd [[
