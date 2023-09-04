@@ -38,9 +38,9 @@ end
 
 protocol.CompletionItemKind = {
   '', -- Text
-  '', -- Method
-  '', -- Function
-  '', -- Constructor
+  'M', -- Method
+  'F', -- Function
+  'C', -- Constructor
   '', -- Field
   '', -- Variable
   '', -- Class
@@ -48,13 +48,13 @@ protocol.CompletionItemKind = {
   '', -- Module
   '', -- Property
   '', -- Unit
-  '', -- Value
+  'V', -- Value
   '', -- Enum
-  '', -- Keyword
-  '﬌', -- Snippet
+  'K', -- Keyword
+  'S', -- Snippet
   '', -- Color
   '', -- File
-  '', -- Reference
+  'R', -- Reference
   '', -- Folder
   '', -- EnumMember
   '', -- Constant
@@ -110,6 +110,8 @@ nvim_lsp.lua_ls.setup {
 --   on_attach = on_attach,
 --   capabilities = capabilities
 -- }
+
+nvim_lsp.csharp_ls.setup {}
 
 nvim_lsp.astro.setup {
   on_attach = on_attach,

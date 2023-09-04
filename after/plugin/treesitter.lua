@@ -1,7 +1,7 @@
-local status, ts = pcall (require, 'nvim-treesitter.configs')
+local status, ts = pcall(require, 'nvim-treesitter.configs')
 if (not status) then return end
 
-ts.setup{
+ts.setup {
   highlight = {
     enable = true,
     disable = {},
@@ -11,6 +11,7 @@ ts.setup{
     disable = {},
   },
   ensure_installed = {
+    'c_sharp',
     'javascript',
     'typescript',
     'lua',
