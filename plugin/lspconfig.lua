@@ -101,16 +101,11 @@ nvim_lsp.lua_ls.setup {
   },
 }
 
--- nvim_lsp.tailwindcss.setup {
---   on_attach = on_attach,
---   capabilities = capabilities
--- }
+nvim_lsp.marksman.setup {}
 
--- nvim_lsp.cssls.setup {
---   on_attach = on_attach,
---   capabilities = capabilities
--- }
-
+nvim_lsp.html.setup {
+  capabilities = capabilities
+}
 nvim_lsp.csharp_ls.setup {}
 
 nvim_lsp.astro.setup {
@@ -128,7 +123,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 )
 
 -- Diagnostic symbols in the sign column (gutter)
-local signs = { Error = " ", Warn = " ", Hint = "> ", Info = " " }
+local signs = { Error = "", Warn = "", Hint = "", Info = "" }
 for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })

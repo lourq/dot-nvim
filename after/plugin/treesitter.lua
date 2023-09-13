@@ -17,7 +17,9 @@ ts.setup {
     'lua',
     'json',
     'css',
-    'html'
+    'html',
+    'json',
+    'markdown',
   },
   autotag = {
     enable = true,
